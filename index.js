@@ -1,18 +1,18 @@
-require("dotenv").config();
+require("dotenv").config(); /*HABILITAMOS A USAR VARIABLES DE ENTORNO EN NUESTRO DOCUMENTO*/
 const { PORT } = process.env;
-const server = require("./src/app");
-const conection = require("./src/db");
-const { createRoles, createAdmin } = require("./src/libs/initialSetup.js")
+const server = require("./src/app.js");
+const connection = require("./src/db.js");
+const { createAdmin, createRoles } = require("./src/libs/initialSetup.js")
 
 
-conection();
+/* ------------------------------------ */
+connection();
+//crear roles
+createRoles()
+//crear usuarios
+createAdmin()
 
-// crear roles
-createRoles();
-
-// crear usuarios
-createAdmin();
-
+/* --------------------- */
 server.listen(PORT, () => {
-  console.log("Servidor levantado correctamente en el puerto", PORT);
+  console.log("Servidor levantado correctamente en el puerto ", PORT);
 });
