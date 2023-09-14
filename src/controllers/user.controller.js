@@ -20,7 +20,7 @@ const createUser = async (req, res) => {
 
       // Encriptar la contraseña sin metodo estatico
       //const salt = await bcrypt.genSalt(10);
-      //user.password = await bcrypt.hash(password, salt); // user.encryptPassword(password)
+      //user.password = await bcrypt.hash(password, salt);
 
       // Encriptar la contraseña con metodo estatico
       user.password = await User.encryptPassword(password);
