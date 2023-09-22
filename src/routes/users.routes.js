@@ -17,6 +17,18 @@ router.get("/", verifyToken, async (req, res) => {
 });
 
 // GET USE BY ID
+router.get("/:id", async (req, res) => {
+    try {
+      //1-Filtrar segun param de name
+      let id = (req.params.id);
+      let userFound = await User.findById(id);
+      console.log(userFound);
+      res.status(202).json(userFound);
+    } catch (error) {
+      console.log(error);
+      res.status(400).json("Error en la ejecucion de bucar por id");
+    }
+  });
 
 // POST CREAR USUARIO
 

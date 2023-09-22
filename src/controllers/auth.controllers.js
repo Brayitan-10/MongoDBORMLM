@@ -39,7 +39,8 @@ const signUpHandler = async (req, res) => {
       }
     );
 
-    return res.status(200).json({ token });
+    //return res.status(200).json({ token,  });
+    res.status(200).json(newUser)
 
   } catch (error) {
     console.log(error);
@@ -62,6 +63,7 @@ const signInHandler = async (req, res) => {
     });
 
     res.status(200).json({ token });
+    
   } catch (error) {
     console.log(error);
   }
